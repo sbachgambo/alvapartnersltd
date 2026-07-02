@@ -1,0 +1,422 @@
+/* =====================================================================
+   ALVA PARTNERS — SHARED DESIGN SYSTEM
+   Common base used by every page. Page-specific section styles live
+   inline in each page's <style> block.
+   ===================================================================== */
+
+/* ===== RESET & BASE ===== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Brand palette derived from the logo (graphite greyscale) + solar amber accent.
+       Variable names --navy/--gold are kept for compatibility; their VALUES are the
+       new brand colors. --navy = graphite, --gold = solar amber. */
+    --navy: #232323;       /* graphite — primary dark (darkest logo letter) */
+    --gold: #E0892B;       /* solar amber — accent */
+    --gold-text: #9C5410;  /* accessible amber for small text on light backgrounds (AA) */
+    --slate: #575757;      /* neutral mid-grey — secondary text (from logo greys) */
+    --white: #FFFFFF;
+    --off-white: #F4F4F5;  /* neutral off-white */
+    --almost-black: #1A1A1A;
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    --transition: 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--almost-black);
+    background: var(--white);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+.headline {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1.15;
+}
+h2 {
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    line-height: 1.2;
+}
+h3 {
+    font-size: clamp(1.3rem, 2vw, 1.6rem);
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ===== ACCESSIBLE FOCUS ===== */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.btn:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+}
+
+/* ===== SHARED SECTION LABEL ===== */
+.section-label {
+    text-align: center;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gold-text);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    display: inline-block;
+    padding: 14px 36px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-sm {
+    padding: 10px 24px;
+    font-size: 0.85rem;
+}
+
+.btn-gold {
+    background: var(--gold);
+    color: var(--navy); /* dark text on amber — passes WCAG AA */
+}
+.btn-gold:hover {
+    background: #C6761C;
+    color: var(--navy);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(224, 137, 43, 0.35);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+.btn-outline:hover {
+    background: var(--white);
+    color: var(--navy);
+    transform: translateY(-2px);
+}
+
+.btn-navy {
+    background: var(--navy);
+    color: var(--white);
+}
+.btn-navy:hover {
+    background: #141414;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(35, 35, 35, 0.3);
+}
+
+.btn-outline-navy {
+    background: transparent;
+    color: var(--navy);
+    border: 2px solid var(--navy);
+}
+.btn-outline-navy:hover {
+    background: var(--navy);
+    color: var(--white);
+}
+
+/* ===== HEADER ===== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(35, 35, 35, 0.06);
+    padding: 16px 0;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ===== LOGO WORDMARK ===== */
+/* Recreation of the ALVA wordmark: classical Roman caps (Cinzel) with the
+   logo's light-grey -> graphite gradient. Swap for the real logo file by
+   replacing the markup inside a.logo with <img src="images/logo.svg" ...>. */
+.logo {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    line-height: 1;
+}
+
+.logo-word {
+    font-family: 'Cinzel', 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    letter-spacing: 0.22em;
+    padding-left: 0.22em; /* balances trailing letter-spacing */
+    background: linear-gradient(95deg, #A0A0A0 0%, #6E6E6E 42%, #232323 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.logo-sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.68rem;
+    letter-spacing: 0.35em;
+    padding-left: 0.35em;
+    text-transform: uppercase;
+    color: var(--slate);
+}
+
+/* Footer sits on near-black — use a light gradient so the wordmark reads */
+.footer-logo .logo-word {
+    background: linear-gradient(95deg, #FFFFFF 0%, #D0D0D0 60%, #9C9C9C 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+.footer-logo .logo-sub {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+.nav a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--slate);
+    transition: var(--transition);
+    position: relative;
+}
+.nav a:hover {
+    color: var(--navy);
+}
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: var(--transition);
+}
+.nav a:hover::after,
+.nav a.active::after {
+    width: 100%;
+}
+.nav a.active {
+    color: var(--navy);
+    font-weight: 600;
+}
+
+.nav-cta {
+    background: var(--gold);
+    color: var(--navy) !important; /* dark text on amber — passes WCAG AA */
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+.nav-cta:hover {
+    background: #C6761C !important;
+    color: var(--navy) !important;
+}
+.nav-cta::after {
+    display: none !important;
+}
+
+.nav-toggle {
+    display: none;
+    font-size: 1.6rem;
+    color: var(--navy);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    padding: 60px 0 32px;
+    background: #151515;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-brand .footer-logo {
+    margin-bottom: 12px;
+}
+
+.footer-brand p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    max-width: 320px;
+}
+
+.footer h4 {
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 16px;
+}
+
+.footer ul {
+    list-style: none;
+}
+.footer ul li {
+    margin-bottom: 10px;
+}
+.footer ul a {
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+.footer ul a:hover {
+    color: var(--gold);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 0.85rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 16px;
+}
+.footer-social a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+.footer-social a:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+/* ===== IMAGE UTILITIES ===== */
+/* Fills its parent, crops nicely, never distorts. */
+.media-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Page hero/banner: a background image under a navy gradient overlay so
+   white heading text stays legible. Set --page-image per page. */
+.page-header {
+    position: relative;
+    background-color: var(--navy); /* fallback if --page-image is unset or fails to load */
+    background-image:
+        linear-gradient(rgba(35, 35, 35, 0.82), rgba(18, 18, 18, 0.9)),
+        var(--page-image, none);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ===== SHARED RESPONSIVE (nav + footer) ===== */
+@media (max-width: 992px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+        flex-direction: column;
+        background: var(--white);
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        padding: 24px;
+        box-shadow: var(--shadow);
+        gap: 16px;
+        border-top: 1px solid rgba(35, 35, 35, 0.06);
+    }
+    .nav.active {
+        display: flex;
+    }
+    .nav-toggle {
+        display: block;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-brand p {
+        max-width: 100%;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}

@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News & Insights – Alva Partners</title>
+    <meta name="description" content="Read the latest news and insights from Alva Partners, covering renewable energy developments, the NASENI–REA partnership, and our consulting and infrastructure projects across Nigeria." />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,700&family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <!-- Shared design system -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            padding: 140px 0 60px;
+            --page-image: url('images/news-header.jpg');
+            background-color: var(--navy);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 50%;
+            height: 150%;
+            background: radial-gradient(ellipse, rgba(224, 137, 43, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header .breadcrumb {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 16px;
+        }
+        .page-header .breadcrumb a {
+            color: var(--gold);
+        }
+        .page-header .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .page-header h1 {
+            margin-bottom: 12px;
+        }
+        .page-header h1 span {
+            color: var(--gold);
+        }
+
+        .page-header p {
+            max-width: 640px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        .page-header .gold-line {
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 16px auto 0;
+            border-radius: 4px;
+        }
+
+        /* ===== NEWS GRID ===== */
+        .news-section {
+            padding: 60px 0 80px;
+            background: var(--white);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        /* Featured Article */
+        .featured-article {
+            background: var(--off-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--gold);
+        }
+
+        .featured-article .article-image {
+            height: 220px;
+            background: var(--navy);
+            overflow: hidden;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .featured-article .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .featured-article:hover .article-image img {
+            transform: scale(1.05);
+        }
+
+        .featured-article .article-body {
+            padding: 32px 36px 40px;
+        }
+
+        .featured-article .article-tag {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 4px 16px;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .featured-article .article-body h2 {
+            color: var(--navy);
+            margin-bottom: 12px;
+            font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+        }
+
+        .featured-article .article-body .meta {
+            font-size: 0.85rem;
+            color: var(--slate);
+            opacity: 0.7;
+            margin-bottom: 16px;
+        }
+
+        .featured-article .article-body .meta i {
+            margin-right: 6px;
+            color: var(--gold);
+        }
+
+        .featured-article .article-body p {
+            color: var(--slate);
+            font-size: 1rem;
+            line-height: 1.9;
+            margin-bottom: 16px;
+        }
+
+        .featured-article .article-body .read-more {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .featured-article .article-body .read-more:hover {
+            color: #C6761C;
+            transform: translateX(4px);
+        }
+
+        /* Side Articles */
+        .side-articles {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .side-article {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 0;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(35, 35, 35, 0.04);
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .side-article:hover {
+            border-color: rgba(224, 137, 43, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
+        }
+
+        .side-article .side-image {
+            height: 150px;
+            background: var(--navy);
+            overflow: hidden;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .side-article .side-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .side-article:hover .side-image img {
+            transform: scale(1.05);
+        }
+
+        .side-article .side-body {
+            padding: 20px 24px 24px;
+        }
+
+        .side-article .side-tag {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gold);
+            background: rgba(224, 137, 43, 0.1);
+            padding: 2px 12px;
+            border-radius: 100px;
+            margin-bottom: 8px;
+        }
+
+        .side-article h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        .side-article p {
+            font-size: 0.9rem;
+            color: var(--slate);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .side-article .meta {
+            font-size: 0.75rem;
+            color: var(--slate);
+            opacity: 0.6;
+        }
+
+        .side-article .meta i {
+            margin-right: 4px;
+            color: var(--gold);
+        }
+
+        .side-article .read-more-sm {
+            color: var(--gold);
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .side-article .read-more-sm:hover {
+            color: #C6761C;
+            transform: translateX(4px);
+        }
+
+        /* ===== SUBSCRIBE SECTION ===== */
+        .subscribe-section {
+            padding: 80px 0;
+            background: var(--off-white);
+            text-align: center;
+        }
+
+        .subscribe-section h2 {
+            margin-bottom: 12px;
+        }
+
+        .subscribe-section p {
+            max-width: 560px;
+            margin: 0 auto 32px;
+            color: var(--slate);
+            font-size: 1.05rem;
+        }
+
+        .subscribe-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 12px;
+        }
+
+        .subscribe-form input {
+            flex: 1;
+            padding: 14px 20px;
+            border: 1px solid rgba(35, 35, 35, 0.12);
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            background: var(--white);
+            color: var(--almost-black);
+        }
+
+        .subscribe-form input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(224, 137, 43, 0.15);
+        }
+
+        .subscribe-form .btn {
+            padding: 14px 32px;
+            white-space: nowrap;
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 12px;
+        }
+        .cta-section h2 span {
+            color: var(--gold);
+        }
+
+        .cta-section p {
+            max-width: 560px;
+            margin: 0 auto 32px;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 1.1rem;
+        }
+
+        .cta-section .btn-gold {
+            font-size: 1rem;
+            padding: 16px 44px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 120px 0 48px;
+            }
+
+            .featured-article .article-body {
+                padding: 24px;
+            }
+            .subscribe-form {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .featured-article .article-image {
+                height: 140px;
+            }
+            .side-article .side-body {
+                padding: 18px 20px;
+            }
+            .side-article .side-image {
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Alva Partners home">
+                <span class="logo-word">ALVA</span>
+                <span class="logo-sub">Partners</span>
+            </a>
+
+            <nav class="nav" id="nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="solar.html">Renewable Energy</a>
+                <a href="portfolio.html">Projects</a>
+                <a href="news.html" class="active" aria-current="page">News</a>
+                <a href="contact-us.html" class="nav-cta">Contact</a>
+            </nav>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== PAGE HEADER ===== -->
+    <section class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / News
+            </div>
+            <h1>News &amp; <span>Insights</span></h1>
+            <p>
+                Stay updated with the latest developments at Alva Partners and across Nigeria's
+                renewable energy, infrastructure, and business consulting landscape.
+            </p>
+            <div class="gold-line"></div>
+        </div>
+    </section>
+
+    <!-- ===== NEWS GRID ===== -->
+    <section class="news-section">
+        <div class="container">
+
+            <div class="news-grid">
+
+                <!-- Featured Article -->
+                <div class="featured-article">
+                    <div class="article-image">
+                        <img src="images/business-meeting.jpg" alt="Business leaders meeting to discuss the NASENI and REA partnership" loading="lazy" />
+                    </div>
+                    <div class="article-body">
+                        <span class="article-tag"><i class="fas fa-star" style="margin-right:4px;"></i> Featured</span>
+                        <h2>NASENI and REA Sign MoU on Renewable Energy Deployment</h2>
+                        <div class="meta">
+                            <i class="far fa-calendar-alt"></i> June 19, 2026
+                            &nbsp;&nbsp;|&nbsp;&nbsp;
+                            <i class="far fa-building"></i> BPP Headquarters, Abuja
+                            &nbsp;&nbsp;|&nbsp;&nbsp;
+                            <i class="far fa-user"></i> National Agency for Science and Engineering Infrastructure
+                        </div>
+                        <p>
+                            The National Agency for Science and Engineering Infrastructure (NASENI) has signed a
+                            Memorandum of Understanding (MoU) with the Rural Electrification Agency (REA) to promote
+                            locally manufactured renewable energy technologies under the Federal Government's
+                            <strong>"Nigeria First Policy."</strong>
+                        </p>
+                        <p>
+                            The agreement signing was facilitated by the Director-General of the Bureau of Public
+                            Procurement (BPP), Dr. Adebowale Abraham Adedokun, at the BPP headquarters in Abuja on
+                            Friday, June 19, 2026.
+                        </p>
+                        <p>
+                            <strong>Alva Partners is proud to be an official sales partner in this transformative
+                            initiative.</strong> As an authorized NASENI Devfrontier Green Energy partner, we are
+                            positioned to distribute high-quality solar products that will expand energy access
+                            across Nigeria.
+                        </p>
+                        <a href="#" class="read-more">
+                            Read Full Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Side Articles -->
+                <div class="side-articles">
+
+                    <div class="side-article">
+                        <div class="side-image">
+                            <img src="images/pillars-solar.jpg" alt="Rows of solar panels" loading="lazy" />
+                        </div>
+                        <div class="side-body">
+                            <span class="side-tag">Company News</span>
+                            <h3>Alva Partners Named Official NASENI Sales Partner</h3>
+                            <p>
+                                Authorized to promote, market, and distribute a full range of solar lighting products
+                                across Nigeria—including street lights, garden lights, flood lights, and wall lights.
+                            </p>
+                            <div class="meta">
+                                <i class="far fa-calendar-alt"></i> May 1, 2026
+                            </div>
+                            <a href="#" class="read-more-sm">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="side-article">
+                        <div class="side-image">
+                            <img src="images/product-rooftop.jpg" alt="Worker at a power generating plant site" loading="lazy" />
+                        </div>
+                        <div class="side-body">
+                            <span class="side-tag">Project Update</span>
+                            <h3>NSITF Contract – 150kva Generating Plant Supply</h3>
+                            <p>
+                                Alva Partners awarded a contract for the supply, delivery, and installation of a
+                                150kva generating plant at the Nigeria Social Infrastructure Trust Fund Headquarters
+                                in Abuja.
+                            </p>
+                            <div class="meta">
+                                <i class="far fa-calendar-alt"></i> October 2025
+                            </div>
+                            <a href="#" class="read-more-sm">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="side-article">
+                        <div class="side-image">
+                            <img src="images/contact-header.jpg" alt="Busy port-city road" loading="lazy" />
+                        </div>
+                        <div class="side-body">
+                            <span class="side-tag">Project Update</span>
+                            <h3>Lekki Port LNG Advisory Services</h3>
+                            <p>
+                                Engaged to provide expert advisory services for the development and operation of a
+                                Liquefied Natural Gas business within the Lekki Port Liquid Terminals.
+                            </p>
+                            <div class="meta">
+                                <i class="far fa-calendar-alt"></i> November 2024
+                            </div>
+                            <a href="#" class="read-more-sm">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="side-article">
+                        <div class="side-image">
+                            <img src="images/product-panel.jpg" alt="Close-up of solar panel cells" loading="lazy" />
+                        </div>
+                        <div class="side-body">
+                            <span class="side-tag">Industry News</span>
+                            <h3>Nigeria's Renewable Energy Sector Gains Momentum</h3>
+                            <p>
+                                With the NASENI-REA collaboration and the "Nigeria First Policy," the country is
+                                making significant strides toward energy independence and local manufacturing of
+                                solar technologies.
+                            </p>
+                            <div class="meta">
+                                <i class="far fa-calendar-alt"></i> June 2026
+                            </div>
+                            <a href="#" class="read-more-sm">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== SUBSCRIBE ===== -->
+    <section class="subscribe-section">
+        <div class="container">
+            <p class="section-label">Stay Connected</p>
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>
+                Get the latest news, project updates, and renewable energy insights delivered
+                straight to your inbox.
+            </p>
+
+            <form class="subscribe-form">
+                <input type="email" placeholder="Enter your email address" required />
+                <button type="submit" class="btn btn-gold">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Have a <span>Story to Share</span>?</h2>
+            <p>
+                If you have a project, partnership, or news you'd like to discuss with us,
+                we'd love to hear from you.
+            </p>
+            <a href="contact-us.html" class="btn btn-gold">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo footer-logo" aria-label="Alva Partners home">
+                        <span class="logo-word">ALVA</span>
+                        <span class="logo-sub">Partners</span>
+                    </a>
+                    <p>
+                        Plot 100, 4th Avenue, Gwarinpa, Abuja, FCT<br />
+                        <i class="fas fa-phone" style="margin-right:6px; color:var(--gold);"></i> +234 816 322 6483<br />
+                        <i class="fas fa-envelope" style="margin-right:6px; color:var(--gold);"></i> alvapartnersltd@gmail.com
+                    </p>
+                </div>
+
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="solar.html">Renewable Energy</a></li>
+                        <li><a href="portfolio.html">Projects</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="solar.html">Solar Street Lights</a></li>
+                        <li><a href="solar.html">Solar Garden Lights</a></li>
+                        <li><a href="solar.html">Solar Flood Lights</a></li>
+                        <li><a href="solar.html">Solar Wall Lights</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="contact-us.html">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2026 Alva Partners Limited. All rights reserved. RC 1103062</span>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="main.js"></script>
+
+</body>
+</html>

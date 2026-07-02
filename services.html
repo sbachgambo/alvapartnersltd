@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Services – Alva Partners</title>
+    <meta name="description" content="Explore Alva Partners' services: project management, procurement consulting, risk management, and financial & business advisory, alongside renewable solar energy solutions across Nigeria." />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,700&family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <!-- Shared design system -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            padding: 140px 0 60px;
+            --page-image: url('images/services-header.jpg');
+            background-color: var(--navy);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 50%;
+            height: 150%;
+            background: radial-gradient(ellipse, rgba(224, 137, 43, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header .breadcrumb {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 16px;
+        }
+        .page-header .breadcrumb a {
+            color: var(--gold);
+        }
+        .page-header .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .page-header h1 {
+            margin-bottom: 12px;
+        }
+        .page-header h1 span {
+            color: var(--gold);
+        }
+
+        .page-header p {
+            max-width: 640px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        .page-header .gold-line {
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 16px auto 0;
+            border-radius: 4px;
+        }
+
+        /* ===== SERVICES GRID ===== */
+        .services-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .services-section h2 {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .services-section>p {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 56px;
+            color: var(--slate);
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--off-white);
+            padding: 40px 32px;
+            border-radius: 12px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow);
+            border-color: rgba(224, 137, 43, 0.2);
+        }
+
+        .service-card .icon {
+            width: 64px;
+            height: 64px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--gold);
+            font-size: 1.6rem;
+        }
+
+        .service-card h3 {
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            color: var(--slate);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .service-card .learn-more {
+            display: inline-block;
+            margin-top: 16px;
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .service-card .learn-more:hover {
+            color: #C6761C;
+            transform: translateX(4px);
+        }
+        .service-card .learn-more i {
+            margin-left: 6px;
+            font-size: 0.7rem;
+        }
+
+        /* Highlighted Service (Renewable Energy) */
+        .service-card.highlight {
+            background: var(--navy);
+            color: var(--white);
+            border-color: var(--gold);
+            border-width: 2px;
+        }
+
+        .service-card.highlight .icon {
+            background: rgba(255, 255, 255, 0.12);
+            color: var(--gold);
+        }
+
+        .service-card.highlight h3 {
+            color: var(--white);
+        }
+
+        .service-card.highlight p {
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .service-card.highlight .learn-more {
+            color: var(--gold);
+        }
+
+        .service-card .badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 14px;
+            border-radius: 100px;
+            margin-bottom: 12px;
+        }
+
+        /* ===== PROCESS ===== */
+        .process-section {
+            padding: 80px 0;
+            background: var(--off-white);
+        }
+
+        .process-section h2 {
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .process-section>p {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 48px;
+            color: var(--slate);
+            font-size: 1.05rem;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            position: relative;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 24px 12px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 3px solid var(--gold);
+        }
+
+        .process-step:hover {
+            transform: translateY(-4px);
+        }
+
+        .process-step .step-number {
+            display: inline-block;
+            width: 44px;
+            height: 44px;
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 50%;
+            line-height: 44px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .process-step h4 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--navy);
+            margin-bottom: 4px;
+        }
+
+        .process-step p {
+            font-size: 0.8rem;
+            color: var(--slate);
+            line-height: 1.6;
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 12px;
+        }
+        .cta-section h2 span {
+            color: var(--gold);
+        }
+
+        .cta-section p {
+            max-width: 560px;
+            margin: 0 auto 32px;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 1.1rem;
+        }
+
+        .cta-section .btn-gold {
+            font-size: 1rem;
+            padding: 16px 44px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .process-steps {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 120px 0 48px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .process-steps {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Alva Partners home">
+                <span class="logo-word">ALVA</span>
+                <span class="logo-sub">Partners</span>
+            </a>
+
+            <nav class="nav" id="nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html" class="active" aria-current="page">Services</a>
+                <a href="solar.html">Renewable Energy</a>
+                <a href="portfolio.html">Projects</a>
+                <a href="news.html">News</a>
+                <a href="contact-us.html" class="nav-cta">Contact</a>
+            </nav>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== PAGE HEADER ===== -->
+    <section class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / Services
+            </div>
+            <h1>Our <span>Services</span></h1>
+            <p>
+                Tailored business solutions, expert consulting, and renewable energy deployment—
+                designed to help you achieve lasting success.
+            </p>
+            <div class="gold-line"></div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES GRID ===== -->
+    <section class="services-section">
+        <div class="container">
+            <p class="section-label">What We Do</p>
+            <h2>Comprehensive Solutions</h2>
+            <p>
+                From strategic consulting to project execution and renewable energy distribution,
+                Alva Partners delivers end-to-end solutions across industries.
+            </p>
+
+            <div class="services-grid">
+                <!-- 1. Project Management -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-tasks"></i></div>
+                    <h3>Project Management</h3>
+                    <p>
+                        We take pride in delivering projects on time, within budget, and with
+                        impeccable quality. Our approach blends efficiency with excellence—
+                        ensuring every milestone is met and every stakeholder is satisfied.
+                    </p>
+                    <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 2. Procurement Consulting -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-handshake"></i></div>
+                    <h3>Procurement Consulting</h3>
+                    <p>
+                        Drawing on extensive industry knowledge, we guide clients in optimizing
+                        procurement processes—resulting in cost-effectiveness, enhanced efficiency,
+                        and full regulatory compliance.
+                    </p>
+                    <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 3. Market Research & Analysis -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Market Research &amp; Analysis</h3>
+                    <p>
+                        Our seasoned analysts provide in-depth market research, delivering
+                        invaluable insights to support informed business strategies, investment
+                        decisions, and competitive positioning.
+                    </p>
+                    <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 4. Risk Management Consulting -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Risk Management Consulting</h3>
+                    <p>
+                        We assess, mitigate, and manage risks inherent in business operations—
+                        safeguarding our clients' interests and bolstering their resilience in
+                        an ever-changing environment.
+                    </p>
+                    <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 5. Financial Advisory Services -->
+                <div class="service-card">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Financial Advisory Services</h3>
+                    <p>
+                        Our experts offer personalized financial advice and planning, ensuring
+                        our clients make sound decisions for sustainable growth. We navigate
+                        fixed-income markets to achieve optimal results.
+                    </p>
+                    <a href="#" class="learn-more">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- 6. Renewable Energy Solutions (Highlighted) -->
+                <div class="service-card highlight">
+                    <span class="badge"><i class="fas fa-bolt" style="margin-right:4px;"></i> New</span>
+                    <div class="icon"><i class="fas fa-sun"></i></div>
+                    <h3>Renewable Energy Solutions</h3>
+                    <p>
+                        As an official NASENI Devfrontier Green Energy partner, we distribute,
+                        market, and sell high-quality solar lighting products—including street
+                        lights, garden lights, flood lights, and wall lights—driving Nigeria's
+                        clean energy transition.
+                    </p>
+                    <a href="solar.html" class="learn-more">Explore Products <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROCESS ===== -->
+    <section class="process-section">
+        <div class="container">
+            <p class="section-label">How We Work</p>
+            <h2>Our Project Management Process</h2>
+            <p>
+                From initial consultation to project completion, we follow a structured,
+                transparent approach that ensures quality and accountability at every stage.
+            </p>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <h4>Discovery</h4>
+                    <p>We understand your needs, goals, and challenges through in-depth consultation.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <h4>Planning</h4>
+                    <p>We develop a comprehensive strategy, timeline, and resource plan tailored to your project.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <h4>Execution</h4>
+                    <p>Our team delivers with precision, coordinating all stakeholders and managing every detail.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <h4>Monitoring</h4>
+                    <p>We track progress, manage risks, and ensure quality control throughout the project lifecycle.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">05</div>
+                    <h4>Completion</h4>
+                    <p>We deliver results, conduct final reviews, and ensure client satisfaction and handover.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Need a <span>Tailored Solution</span>?</h2>
+            <p>
+                Whether you require consulting expertise, project delivery, or renewable energy products—
+                Alva Partners is ready to serve you.
+            </p>
+            <a href="contact-us.html" class="btn btn-gold">Get a Quote</a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo footer-logo" aria-label="Alva Partners home">
+                        <span class="logo-word">ALVA</span>
+                        <span class="logo-sub">Partners</span>
+                    </a>
+                    <p>
+                        Plot 100, 4th Avenue, Gwarinpa, Abuja, FCT<br />
+                        <i class="fas fa-phone" style="margin-right:6px; color:var(--gold);"></i> +234 816 322 6483<br />
+                        <i class="fas fa-envelope" style="margin-right:6px; color:var(--gold);"></i> alvapartnersltd@gmail.com
+                    </p>
+                </div>
+
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="solar.html">Renewable Energy</a></li>
+                        <li><a href="portfolio.html">Projects</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="solar.html">Solar Street Lights</a></li>
+                        <li><a href="solar.html">Solar Garden Lights</a></li>
+                        <li><a href="solar.html">Solar Flood Lights</a></li>
+                        <li><a href="solar.html">Solar Wall Lights</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="contact-us.html">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2026 Alva Partners Limited. All rights reserved. RC 1103062</span>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="main.js"></script>
+
+</body>
+</html>

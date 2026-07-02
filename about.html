@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Alva Partners – Business Solutions &amp; Renewable Energy</title>
+    <meta name="description" content="Learn about Alva Partners, a Nigerian business-solutions and renewable-energy company trusted since 2013 and an official NASENI Devfrontier solar partner driving the nation's clean energy transition." />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,700&family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <!-- Shared design system -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            padding: 140px 0 60px;
+            background-color: var(--navy);
+            --page-image: url('images/about-header.jpg');
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 50%;
+            height: 150%;
+            background: radial-gradient(ellipse, rgba(224, 137, 43, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .page-header .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header .breadcrumb {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 16px;
+        }
+        .page-header .breadcrumb a {
+            color: var(--gold);
+        }
+        .page-header .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .page-header h1 {
+            margin-bottom: 12px;
+        }
+        .page-header h1 span {
+            color: var(--gold);
+        }
+
+        .page-header p {
+            max-width: 640px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        .page-header .gold-line {
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 16px auto 0;
+            border-radius: 4px;
+        }
+
+        /* ===== ABOUT CONTENT ===== */
+        .about-intro {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .about-intro .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-intro h2 {
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .about-intro h2 span {
+            color: var(--gold);
+        }
+
+        .about-intro p {
+            color: var(--slate);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 16px;
+        }
+
+        .about-intro .about-image {
+            border-radius: 12px;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            border: 1px solid rgba(35, 35, 35, 0.06);
+            box-shadow: var(--shadow);
+        }
+
+        /* ===== MISSION & VISION ===== */
+        .mv-section {
+            padding: 80px 0;
+            background: var(--off-white);
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .mv-card {
+            background: var(--white);
+            padding: 44px 36px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--gold);
+            transition: var(--transition);
+        }
+
+        .mv-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .mv-card .icon {
+            font-size: 2.4rem;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .mv-card h3 {
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .mv-card p {
+            color: var(--slate);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        /* ===== CORE VALUES ===== */
+        .values-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .values-section h2 {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 32px 20px;
+            border-radius: 12px;
+            background: var(--off-white);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .value-card:hover {
+            border-color: rgba(224, 137, 43, 0.2);
+            box-shadow: var(--shadow);
+            transform: translateY(-4px);
+        }
+
+        .value-card .icon {
+            font-size: 2.4rem;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .value-card h4 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+
+        .value-card p {
+            font-size: 0.9rem;
+            color: var(--slate);
+            line-height: 1.6;
+        }
+
+        /* ===== BOARD OF DIRECTORS ===== */
+        .board-section {
+            padding: 80px 0;
+            background: var(--off-white);
+        }
+
+        .board-section h2 {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .board-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .board-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(35, 35, 35, 0.04);
+        }
+
+        .board-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+        }
+
+        .board-image {
+            height: 220px;
+            background: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.15);
+            font-size: 4rem;
+        }
+
+        .board-body {
+            padding: 24px 24px 32px;
+        }
+
+        .board-body h4 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--navy);
+            margin-bottom: 2px;
+        }
+
+        .board-body .title {
+            font-size: 0.85rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .board-body p {
+            font-size: 0.9rem;
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        /* ===== KEY PERSONNEL ===== */
+        .personnel-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .personnel-section h2 {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .personnel-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .personnel-item {
+            text-align: center;
+            padding: 24px 16px;
+            background: var(--off-white);
+            border-radius: 8px;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .personnel-item:hover {
+            border-color: rgba(224, 137, 43, 0.2);
+            box-shadow: var(--shadow);
+        }
+
+        .personnel-item .avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: var(--navy);
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 2rem;
+        }
+
+        .personnel-item h5 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 0.95rem;
+        }
+
+        .personnel-item .role {
+            font-size: 0.8rem;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        .personnel-item .qual {
+            font-size: 0.75rem;
+            color: var(--slate);
+            opacity: 0.7;
+            margin-top: 4px;
+        }
+
+        /* ===== CERTIFICATIONS ===== */
+        .cert-section {
+            padding: 80px 0;
+            background: var(--off-white);
+        }
+
+        .cert-section h2 {
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .cert-section>p {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 48px;
+            color: var(--slate);
+            font-size: 1.05rem;
+        }
+
+        .cert-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px 40px;
+        }
+
+        .cert-item {
+            background: var(--white);
+            padding: 16px 28px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(35, 35, 35, 0.04);
+            transition: var(--transition);
+        }
+
+        .cert-item:hover {
+            transform: translateY(-2px);
+            border-color: rgba(224, 137, 43, 0.2);
+        }
+
+        .cert-item i {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        /* ===== CTA ===== */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 12px;
+        }
+        .cta-section h2 span {
+            color: var(--gold);
+        }
+
+        .cta-section p {
+            max-width: 560px;
+            margin: 0 auto 32px;
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 1.1rem;
+        }
+
+        .cta-section .btn-gold {
+            font-size: 1rem;
+            padding: 16px 44px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .about-intro .container {
+                grid-template-columns: 1fr;
+            }
+            .board-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .personnel-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .values-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 120px 0 48px;
+            }
+
+            .mv-grid {
+                grid-template-columns: 1fr;
+            }
+            .board-grid {
+                grid-template-columns: 1fr;
+            }
+            .values-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .personnel-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .cert-grid {
+                gap: 12px;
+            }
+            .cert-item {
+                padding: 12px 20px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            .personnel-grid {
+                grid-template-columns: 1fr;
+            }
+            .board-card .board-image {
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Alva Partners home">
+                <span class="logo-word">ALVA</span>
+                <span class="logo-sub">Partners</span>
+            </a>
+
+            <nav class="nav" id="nav">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active" aria-current="page">About</a>
+                <a href="services.html">Services</a>
+                <a href="solar.html">Renewable Energy</a>
+                <a href="portfolio.html">Projects</a>
+                <a href="news.html">News</a>
+                <a href="contact-us.html" class="nav-cta">Contact</a>
+            </nav>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== PAGE HEADER ===== -->
+    <section class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / About Us
+            </div>
+            <h1>About <span>Alva Partners</span></h1>
+            <p>
+                Trusted business solutions since 2013. Now driving Nigeria's renewable energy transition
+                as an official NASENI Devfrontier Green Energy partner.
+            </p>
+            <div class="gold-line"></div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT INTRO ===== -->
+    <section class="about-intro">
+        <div class="container">
+            <div>
+                <h2>Who We <span>Are</span></h2>
+                <p>
+                    <strong>ALVA PARTNERS LIMITED</strong> is a distinguished private limited liability company,
+                    registered under the laws of the Federal Republic of Nigeria – RC 1103062. Established in 2013,
+                    we were founded with a vision of delivering tailored business solutions that help our clients
+                    navigate complex challenges and risks.
+                </p>
+                <p>
+                    Over the years, we have built a reputation for integrity, excellence, and results—serving
+                    government agencies, private sector leaders, and development partners across Nigeria.
+                </p>
+                <p>
+                    <strong>In 2026, we embarked on a strategic expansion</strong>—becoming an official sales partner
+                    for NASENI Devfrontier Green Energy FZE. This positions Alva Partners at the forefront of
+                    Nigeria's renewable energy future, while continuing to deliver our core consulting and project
+                    management services.
+                </p>
+                <a href="services.html" class="btn btn-gold" style="margin-top:8px;">Explore Our Services</a>
+            </div>
+            <div class="about-image">
+                <img src="images/pillars-business.jpg" alt="Alva Partners professionals collaborating over charts and documents in a meeting" loading="lazy" class="media-cover" />
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MISSION & VISION ===== -->
+    <section class="mv-section">
+        <div class="container">
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <div class="icon"><i class="fas fa-bullseye"></i></div>
+                    <h3>Our Mission</h3>
+                    <p>
+                        To guide our clients towards substantial and enduring enhancements in their performance—
+                        through expert consulting, innovative renewable energy solutions, and a commitment to
+                        integrity and excellence.
+                    </p>
+                </div>
+                <div class="mv-card">
+                    <div class="icon"><i class="fas fa-eye"></i></div>
+                    <h3>Our Vision</h3>
+                    <p>
+                        To be Nigeria's most trusted partner for business solutions and clean energy deployment—
+                        delivering lasting value to our clients and contributing to a sustainable future for all.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CORE VALUES ===== -->
+    <section class="values-section">
+        <div class="container">
+            <p class="section-label">Our Foundation</p>
+            <h2>Core Values</h2>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Integrity</h4>
+                    <p>We act with honesty, transparency, and accountability in everything we do.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon"><i class="fas fa-award"></i></div>
+                    <h4>Excellence</h4>
+                    <p>We strive for the highest standards in service delivery and client satisfaction.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon"><i class="fas fa-lightbulb"></i></div>
+                    <h4>Innovation</h4>
+                    <p>We embrace new ideas, technologies, and approaches to solve complex challenges.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon"><i class="fas fa-handshake"></i></div>
+                    <h4>Partnership</h4>
+                    <p>We build lasting relationships with clients, partners, and communities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BOARD OF DIRECTORS ===== -->
+    <section class="board-section">
+        <div class="container">
+            <p class="section-label">Leadership</p>
+            <h2>Board of Directors</h2>
+
+            <div class="board-grid">
+                <!-- Director 1 -->
+                <div class="board-card">
+                    <div class="board-image"><i class="fas fa-user-tie"></i></div>
+                    <div class="board-body">
+                        <h4>Ayodamope I. Agbaje</h4>
+                        <div class="title">Managing Director</div>
+                        <p>
+                            Infrastructure and finance professional with over 20 years of experience in strategy
+                            formulation, corporate development, infrastructure investment, and business leadership.
+                            Holds an MSc in Financial Economics from the University of Leicester and is a PRINCE2
+                            Certified Practitioner.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Director 2 -->
+                <div class="board-card">
+                    <div class="board-image"><i class="fas fa-user-tie"></i></div>
+                    <div class="board-body">
+                        <h4>Adebola Lawal</h4>
+                        <div class="title">Executive Director</div>
+                        <p>
+                            Seasoned project management and financial consulting professional with over 20 years
+                            of experience across fixed-income markets, business development, and strategic advisory.
+                            Holds a BSc in Economics and is a PRINCE2 Registered Practitioner.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Director 3 -->
+                <div class="board-card">
+                    <div class="board-image"><i class="fas fa-user-tie"></i></div>
+                    <div class="board-body">
+                        <h4>Michael A. Ladipo</h4>
+                        <div class="title">Executive Director</div>
+                        <p>
+                            Versatile leader with 20 years of experience spanning education finance, capacity building,
+                            marketing communications, and business development across the UK and Africa.
+                            Holds an MSc in Marketing and Management from Bradford University.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== KEY PERSONNEL ===== -->
+    <section class="personnel-section">
+        <div class="container">
+            <p class="section-label">Our Team</p>
+            <h2>Key Personnel</h2>
+
+            <div class="personnel-grid">
+                <div class="personnel-item">
+                    <div class="avatar"><i class="fas fa-user"></i></div>
+                    <h5>Andrew Tamuno</h5>
+                    <div class="role">Admin / Operations Manager</div>
+                    <div class="qual">B.Sc. Business Administration</div>
+                </div>
+                <div class="personnel-item">
+                    <div class="avatar"><i class="fas fa-user"></i></div>
+                    <h5>Elizabeth Boladuro</h5>
+                    <div class="role">Head of Operations</div>
+                    <div class="qual">B.A. English &amp; Literary Studies</div>
+                </div>
+                <div class="personnel-item">
+                    <div class="avatar"><i class="fas fa-user"></i></div>
+                    <h5>Peter Kehinde Alaofin</h5>
+                    <div class="role">Quantity Surveyor</div>
+                    <div class="qual">B.Sc. Quantity Surveying</div>
+                </div>
+                <div class="personnel-item">
+                    <div class="avatar"><i class="fas fa-user"></i></div>
+                    <h5>Paul Aruwa</h5>
+                    <div class="role">Quantity Surveyor</div>
+                    <div class="qual">HND Quantity Surveying</div>
+                </div>
+                <div class="personnel-item">
+                    <div class="avatar"><i class="fas fa-user"></i></div>
+                    <h5>Adeboye Shoroye</h5>
+                    <div class="role">Civil Engineer</div>
+                    <div class="qual">COREN / NSE / PRINCE2</div>
+                </div>
+                <div class="personnel-item">
+                    <div class="avatar"><i class="fas fa-user"></i></div>
+                    <h5>Wusu Ebenezer</h5>
+                    <div class="role">Architect</div>
+                    <div class="qual">MNIA – Master of Environmental Design</div>
+                </div>
+                <div class="personnel-item">
+                    <div class="avatar"><i class="fas fa-user"></i></div>
+                    <h5>Lincoln Benson</h5>
+                    <div class="role">IT Officer</div>
+                    <div class="qual">Information Technology</div>
+                </div>
+                <div class="personnel-item">
+                    <div class="avatar"><i class="fas fa-user"></i></div>
+                    <h5>Victor Igboh</h5>
+                    <div class="role">Electrical Engineer</div>
+                    <div class="qual">NEMSA Certified</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CERTIFICATIONS ===== -->
+    <section class="cert-section">
+        <div class="container">
+            <p class="section-label">Accreditations</p>
+            <h2>Certifications &amp; Registrations</h2>
+            <p>
+                Alva Partners holds full regulatory compliance and professional certifications,
+                demonstrating our commitment to quality, safety, and best practices.
+            </p>
+
+            <div class="cert-grid">
+                <span class="cert-item"><i class="fas fa-check-circle"></i> CAC</span>
+                <span class="cert-item"><i class="fas fa-check-circle"></i> BPP IRR</span>
+                <span class="cert-item"><i class="fas fa-check-circle"></i> NEMSA</span>
+                <span class="cert-item"><i class="fas fa-check-circle"></i> PenCom</span>
+                <span class="cert-item"><i class="fas fa-check-circle"></i> ITF</span>
+                <span class="cert-item"><i class="fas fa-check-circle"></i> NSITF</span>
+                <span class="cert-item"><i class="fas fa-check-circle"></i> SCUML</span>
+                <span class="cert-item"><i class="fas fa-check-circle"></i> OEM Certificates</span>
+                <span class="cert-item"><i class="fas fa-check-circle"></i> NASENI Partner</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to <span>Work with Us</span>?</h2>
+            <p>
+                Whether you need expert consulting, project management, or renewable energy solutions—
+                Alva Partners is here to deliver.
+            </p>
+            <a href="contact-us.html" class="btn btn-gold">Contact Us Today</a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo footer-logo" aria-label="Alva Partners home">
+                        <span class="logo-word">ALVA</span>
+                        <span class="logo-sub">Partners</span>
+                    </a>
+                    <p>
+                        Plot 100, 4th Avenue, Gwarinpa, Abuja, FCT<br />
+                        <i class="fas fa-phone" style="margin-right:6px; color:var(--gold);"></i> +234 816 322 6483<br />
+                        <i class="fas fa-envelope" style="margin-right:6px; color:var(--gold);"></i> alvapartnersltd@gmail.com
+                    </p>
+                </div>
+
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="solar.html">Renewable Energy</a></li>
+                        <li><a href="portfolio.html">Projects</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="solar.html">Solar Street Lights</a></li>
+                        <li><a href="solar.html">Solar Garden Lights</a></li>
+                        <li><a href="solar.html">Solar Flood Lights</a></li>
+                        <li><a href="solar.html">Solar Wall Lights</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="contact-us.html">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2026 Alva Partners Limited. All rights reserved. RC 1103062</span>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="main.js"></script>
+
+</body>
+</html>
