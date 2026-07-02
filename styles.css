@@ -14,16 +14,17 @@
 }
 
 :root {
-    /* Brand palette derived from the logo (graphite greyscale) + solar amber accent.
-       Variable names --navy/--gold are kept for compatibility; their VALUES are the
-       new brand colors. --navy = graphite, --gold = solar amber. */
-    --navy: #232323;       /* graphite — primary dark (darkest logo letter) */
-    --gold: #E0892B;       /* solar amber — accent */
-    --gold-text: #9C5410;  /* accessible amber for small text on light backgrounds (AA) */
-    --slate: #575757;      /* neutral mid-grey — secondary text (from logo greys) */
+    /* Monochrome brand palette derived from the ALVA logo (greyscale + silver).
+       Variable names --navy/--gold are kept for compatibility; their VALUES are
+       now: --navy = near-black, --gold = silver-steel accent. */
+    --navy: #1A1A1A;        /* near-black — primary dark, headings, primary buttons */
+    --gold: #7E858E;        /* silver-steel — accent (reads on both light and dark) */
+    --gold-text: #4E535A;   /* deep steel — small accent text on light backgrounds (AA) */
+    --slate: #565B62;       /* steel grey — secondary text */
+    --silver: #B9BEC5;      /* light silver — buttons on dark sections */
     --white: #FFFFFF;
-    --off-white: #F4F4F5;  /* neutral off-white */
-    --almost-black: #1A1A1A;
+    --off-white: #F4F5F6;   /* neutral off-white */
+    --almost-black: #111111;
     --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
     --transition: 0.3s ease;
 }
@@ -85,7 +86,7 @@ input:focus-visible,
 select:focus-visible,
 textarea:focus-visible,
 .btn:focus-visible {
-    outline: 3px solid var(--gold);
+    outline: 3px solid var(--slate);
     outline-offset: 2px;
 }
 
@@ -119,14 +120,27 @@ textarea:focus-visible,
 }
 
 .btn-gold {
-    background: var(--gold);
-    color: var(--navy); /* dark text on amber — passes WCAG AA */
+    background: var(--navy); /* black primary button on light sections */
+    color: var(--white);
 }
 .btn-gold:hover {
-    background: #C6761C;
-    color: var(--navy);
+    background: #333333;
+    color: var(--white);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(224, 137, 43, 0.35);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* On dark sections a black button would disappear — use light silver so it pops */
+.hero .btn-gold,
+.cta-section .btn-gold {
+    background: var(--silver);
+    color: var(--navy);
+}
+.hero .btn-gold:hover,
+.cta-section .btn-gold:hover {
+    background: #CBD0D6;
+    color: var(--navy);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .btn-outline {
@@ -245,7 +259,7 @@ textarea:focus-visible,
     left: 0;
     width: 0;
     height: 2px;
-    background: var(--gold);
+    background: var(--navy);
     transition: var(--transition);
 }
 .nav a:hover::after,
@@ -258,15 +272,15 @@ textarea:focus-visible,
 }
 
 .nav-cta {
-    background: var(--gold);
-    color: var(--navy) !important; /* dark text on amber — passes WCAG AA */
+    background: var(--navy);
+    color: var(--white) !important;
     padding: 8px 20px;
     border-radius: 4px;
     font-weight: 600;
 }
 .nav-cta:hover {
-    background: #C6761C !important;
-    color: var(--navy) !important;
+    background: #333333 !important;
+    color: var(--white) !important;
 }
 .nav-cta::after {
     display: none !important;
