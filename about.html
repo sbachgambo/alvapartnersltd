@@ -130,31 +130,40 @@
         }
 
         .mv-card {
-            background: var(--white);
             padding: 44px 36px;
             border-radius: 12px;
             box-shadow: var(--shadow);
             border-top: 4px solid var(--gold);
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            color: var(--white);
+            background-color: var(--navy);
+            background-image:
+                linear-gradient(150deg, rgba(20, 20, 20, 0.72), rgba(20, 20, 20, 0.9)),
+                var(--card-image, none);
+            background-size: cover;
+            background-position: center;
         }
 
         .mv-card:hover {
             transform: translateY(-4px);
+            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
         }
 
         .mv-card .icon {
             font-size: 2.4rem;
-            color: var(--gold);
+            color: var(--silver);
             margin-bottom: 16px;
         }
 
         .mv-card h3 {
-            color: var(--navy);
+            color: var(--white);
             margin-bottom: 12px;
         }
 
         .mv-card p {
-            color: var(--slate);
+            color: rgba(255, 255, 255, 0.82);
             font-size: 1rem;
             line-height: 1.8;
         }
@@ -549,7 +558,7 @@
     <section class="mv-section">
         <div class="container">
             <div class="mv-grid">
-                <div class="mv-card">
+                <div class="mv-card" style="--card-image: url('images/business-meeting.jpg')">
                     <div class="icon"><i class="fas fa-bullseye"></i></div>
                     <h3>Our Mission</h3>
                     <p>
@@ -558,7 +567,7 @@
                         integrity and excellence.
                     </p>
                 </div>
-                <div class="mv-card">
+                <div class="mv-card" style="--card-image: url('images/pillars-solar.jpg')">
                     <div class="icon"><i class="fas fa-eye"></i></div>
                     <h3>Our Vision</h3>
                     <p>
@@ -654,7 +663,7 @@
         </div>
     </section>
 
-    <!-- ===== KEY PERSONNEL ===== -->
+    <!-- ===== KEY PERSONNEL (hidden until team members and photos are finalized) =====
     <section class="personnel-section">
         <div class="container">
             <p class="section-label">Our Team</p>
@@ -712,6 +721,7 @@
             </div>
         </div>
     </section>
+    -->
 
     <!-- ===== CERTIFICATIONS ===== -->
     <section class="cert-section">

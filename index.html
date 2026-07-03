@@ -54,7 +54,7 @@
         .hero-image   { animation: fade-scale 1s 0.32s cubic-bezier(0.2, 0.6, 0.2, 1) both; }
         @media (prefers-reduced-motion: reduce) {
             .hero-badge, .hero h1, .hero p, .hero-buttons, .hero-image,
-            .hero::before { animation: none !important; }
+            .hero::before, .pillars-section::before { animation: none !important; }
         }
 
         .hero .container {
@@ -219,6 +219,23 @@
         .pillars-section {
             padding: 100px 0;
             background: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        .pillars-section::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -12%;
+            width: 48%;
+            height: 150%;
+            background: radial-gradient(ellipse, rgba(126, 133, 142, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+            animation: hero-drift 26s ease-in-out infinite alternate;
+        }
+        .pillars-section .container {
+            position: relative;
+            z-index: 1;
         }
 
         .pillars-section h2 {

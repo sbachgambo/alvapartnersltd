@@ -447,6 +447,45 @@ textarea:focus-visible,
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.07);
 }
 
+/* Minimalist drifting "orbs" behind dark CTA bands */
+.cta-section {
+    position: relative;
+    overflow: hidden;
+}
+.cta-section::before,
+.cta-section::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+.cta-section::before {
+    width: 460px;
+    height: 460px;
+    top: -150px;
+    left: -110px;
+    animation: orb-a 22s ease-in-out infinite alternate;
+}
+.cta-section::after {
+    width: 380px;
+    height: 380px;
+    bottom: -150px;
+    right: -90px;
+    animation: orb-b 26s ease-in-out infinite alternate;
+}
+.cta-section .container {
+    position: relative;
+    z-index: 1;
+}
+@keyframes orb-a { to { transform: translate(70px, 40px); } }
+@keyframes orb-b { to { transform: translate(-60px, -30px); } }
+@media (prefers-reduced-motion: reduce) {
+    .cta-section::before,
+    .cta-section::after { animation: none !important; }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
     .page-header .breadcrumb,

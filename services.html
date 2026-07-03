@@ -106,40 +106,47 @@
         }
 
         .service-card {
-            background: var(--off-white);
             padding: 40px 32px;
             border-radius: 12px;
             transition: var(--transition);
             border: 1px solid transparent;
             position: relative;
+            overflow: hidden;
+            color: var(--white);
+            background-color: var(--navy);
+            background-image:
+                linear-gradient(155deg, rgba(20, 20, 20, 0.74), rgba(20, 20, 20, 0.9)),
+                var(--card-image, none);
+            background-size: cover;
+            background-position: center;
         }
 
         .service-card:hover {
             transform: translateY(-6px);
-            box-shadow: var(--shadow);
-            border-color: rgba(126, 133, 142, 0.2);
+            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+            border-color: rgba(185, 190, 197, 0.35);
         }
 
         .service-card .icon {
             width: 64px;
             height: 64px;
-            background: var(--navy);
+            background: rgba(255, 255, 255, 0.14);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
-            color: var(--gold);
+            color: var(--white);
             font-size: 1.6rem;
         }
 
         .service-card h3 {
-            color: var(--navy);
+            color: var(--white);
             margin-bottom: 10px;
         }
 
         .service-card p {
-            color: var(--slate);
+            color: rgba(255, 255, 255, 0.82);
             font-size: 0.95rem;
             line-height: 1.8;
         }
@@ -147,13 +154,13 @@
         .service-card .learn-more {
             display: inline-block;
             margin-top: 16px;
-            color: var(--gold);
+            color: var(--silver);
             font-weight: 600;
             font-size: 0.9rem;
             transition: var(--transition);
         }
         .service-card .learn-more:hover {
-            color: #333333;
+            color: var(--white);
             transform: translateX(4px);
         }
         .service-card .learn-more i {
@@ -163,32 +170,13 @@
 
         /* Highlighted Service (Renewable Energy) */
         .service-card.highlight {
-            background: var(--navy);
-            color: var(--white);
             border-color: var(--gold);
             border-width: 2px;
         }
 
-        .service-card.highlight .icon {
-            background: rgba(255, 255, 255, 0.12);
-            color: var(--gold);
-        }
-
-        .service-card.highlight h3 {
-            color: var(--white);
-        }
-
-        .service-card.highlight p {
-            color: rgba(255, 255, 255, 0.75);
-        }
-
-        .service-card.highlight .learn-more {
-            color: var(--gold);
-        }
-
         .service-card .badge {
             display: inline-block;
-            background: var(--gold);
+            background: var(--silver);
             color: var(--navy);
             font-size: 0.65rem;
             font-weight: 700;
@@ -377,7 +365,7 @@
 
             <div class="services-grid">
                 <!-- 1. Project Management -->
-                <div class="service-card">
+                <div class="service-card" style="--card-image: url('images/portfolio-header.jpg')">
                     <div class="icon"><i class="fas fa-tasks"></i></div>
                     <h3>Project Management</h3>
                     <p>
@@ -388,7 +376,7 @@
                 </div>
 
                 <!-- 2. Procurement Consulting -->
-                <div class="service-card">
+                <div class="service-card" style="--card-image: url('images/store-header.jpg')">
                     <div class="icon"><i class="fas fa-handshake"></i></div>
                     <h3>Procurement Consulting</h3>
                     <p>
@@ -399,7 +387,7 @@
                 </div>
 
                 <!-- 3. Market Research & Analysis -->
-                <div class="service-card">
+                <div class="service-card" style="--card-image: url('images/business-meeting.jpg')">
                     <div class="icon"><i class="fas fa-chart-bar"></i></div>
                     <h3>Market Research &amp; Analysis</h3>
                     <p>
@@ -410,7 +398,7 @@
                 </div>
 
                 <!-- 4. Risk Management Consulting -->
-                <div class="service-card">
+                <div class="service-card" style="--card-image: url('images/news-header.jpg')">
                     <div class="icon"><i class="fas fa-shield-alt"></i></div>
                     <h3>Risk Management Consulting</h3>
                     <p>
@@ -421,7 +409,7 @@
                 </div>
 
                 <!-- 5. Financial Advisory Services -->
-                <div class="service-card">
+                <div class="service-card" style="--card-image: url('images/pillars-business.jpg')">
                     <div class="icon"><i class="fas fa-chart-line"></i></div>
                     <h3>Financial Advisory Services</h3>
                     <p>
@@ -432,7 +420,7 @@
                 </div>
 
                 <!-- 6. Renewable Energy Solutions (Highlighted) -->
-                <div class="service-card highlight">
+                <div class="service-card highlight" style="--card-image: url('images/pillars-solar.jpg')">
                     <span class="badge"><i class="fas fa-bolt" style="margin-right:4px;"></i> New</span>
                     <div class="icon"><i class="fas fa-sun"></i></div>
                     <h3>Renewable Energy Solutions</h3>
