@@ -417,8 +417,9 @@
                     </p>
 
                     <!-- TODO: Replace YOUR_WEB3FORMS_ACCESS_KEY with your free key from https://web3forms.com (uses the email alvapartnersltd@gmail.com). Until then the form will not deliver. -->
-                    <form action="https://api.web3forms.com/submit" method="POST">
+                    <form action="https://api.web3forms.com/submit" method="POST" class="web3form">
                         <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+                        <input type="hidden" name="from_name" value="Alva Partners Website" />
                         <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
                         <div class="form-row">
                             <div class="form-group">
@@ -440,13 +441,13 @@
                             <label for="subject">Subject <span class="required">*</span></label>
                             <select id="subject" name="subject" required>
                                 <option value="">Select a subject...</option>
-                                <option value="general">General Inquiry</option>
-                                <option value="solar">Renewable Energy / Solar Products</option>
-                                <option value="consulting">Consulting Services</option>
-                                <option value="procurement">Procurement</option>
-                                <option value="project-management">Project Management</option>
-                                <option value="partnership">Partnership Opportunity</option>
-                                <option value="other">Other</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                                <option value="Renewable Energy / Solar Products">Renewable Energy / Solar Products</option>
+                                <option value="Consulting Services">Consulting Services</option>
+                                <option value="Procurement">Procurement</option>
+                                <option value="Project Management">Project Management</option>
+                                <option value="Partnership Opportunity">Partnership Opportunity</option>
+                                <option value="Other">Other</option>
                             </select>
                         </div>
 
@@ -456,6 +457,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-gold">Send Message</button>
+                        <div class="form-status" role="status" aria-live="polite"></div>
                     </form>
                 </div>
 
