@@ -86,3 +86,67 @@
         });
     });
 })();
+
+// ===== SCROLL REVEAL =====
+// Fade + slide elements into view as the user scrolls. Above-the-fold
+// elements are shown immediately (no flash); grid items stagger.
+(function () {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!('IntersectionObserver' in window)) return;
+
+    var SELECTORS = [
+        '.section-label',
+        '.container > h2',
+        '.pillars-grid > *', '.product-grid > *', '.projects-grid > *',
+        '.services-grid > *', '.why-solar-grid > *', '.values-grid > *',
+        '.board-grid > *', '.personnel-grid > *', '.cert-grid > *',
+        '.mv-grid > *', '.process-steps > *',
+        '.featured-article', '.side-article', '.news-main', '.news-side-item',
+        '.about-image', '.partnership-banner', '.logo-marquee', '.trust-item',
+        '.inquiry-form', '.inquiry-info', '.contact-form', '.map-placeholder',
+        '.subscribe-form'
+    ];
+    var els = document.querySelectorAll(SELECTORS.join(','));
+    if (!els.length) return;
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    // Pass 1: mark everything as revealable.
+    Array.prototype.forEach.call(els, function (el) { el.classList.add('reveal'); });
+
+    // Pass 2: stagger siblings, and reveal above-the-fold items now (no flash).
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    Array.prototype.forEach.call(els, function (el) {
+        var parent = el.parentElement;
+        if (parent) {
+            var sibs = Array.prototype.filter.call(parent.children, function (c) {
+                return c.classList.contains('reveal');
+            });
+            var idx = sibs.indexOf(el);
+            if (idx > 0) el.style.transitionDelay = Math.min(idx, 6) * 70 + 'ms';
+        }
+        if (el.getBoundingClientRect().top < vh * 0.92) {
+            el.classList.add('in-view');
+        } else {
+            observer.observe(el);
+        }
+    });
+})();
+
+// ===== HEADER SHADOW ON SCROLL =====
+(function () {
+    var header = document.getElementById('header');
+    if (!header) return;
+    var onScroll = function () {
+        header.classList.toggle('scrolled', window.pageYOffset > 12);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+})();

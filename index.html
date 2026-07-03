@@ -39,6 +39,22 @@
             height: 140%;
             background: radial-gradient(ellipse, rgba(126, 133, 142, 0.08) 0%, transparent 70%);
             pointer-events: none;
+            animation: hero-drift 22s ease-in-out infinite alternate;
+        }
+        @keyframes hero-drift {
+            from { transform: translate(0, 0) scale(1); }
+            to   { transform: translate(-6%, 5%) scale(1.15); }
+        }
+
+        /* Hero entrance (staggered) */
+        .hero-badge   { animation: rise-in 0.8s 0.10s cubic-bezier(0.2, 0.6, 0.2, 1) both; }
+        .hero h1      { animation: rise-in 0.9s 0.22s cubic-bezier(0.2, 0.6, 0.2, 1) both; }
+        .hero p       { animation: rise-in 0.9s 0.36s cubic-bezier(0.2, 0.6, 0.2, 1) both; }
+        .hero-buttons { animation: rise-in 0.9s 0.50s cubic-bezier(0.2, 0.6, 0.2, 1) both; }
+        .hero-image   { animation: fade-scale 1s 0.32s cubic-bezier(0.2, 0.6, 0.2, 1) both; }
+        @media (prefers-reduced-motion: reduce) {
+            .hero-badge, .hero h1, .hero p, .hero-buttons, .hero-image,
+            .hero::before { animation: none !important; }
         }
 
         .hero .container {

@@ -414,6 +414,47 @@ textarea:focus-visible,
     padding: 12px 16px;
 }
 
+/* ===== MOTION & ANIMATION ===== */
+@keyframes rise-in {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: none; }
+}
+@keyframes fade-scale {
+    from { opacity: 0; transform: scale(0.94); }
+    to   { opacity: 1; transform: none; }
+}
+
+/* Scroll reveal — JS adds .in-view when the element enters the viewport */
+.reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.7s cubic-bezier(0.2, 0.6, 0.2, 1),
+                transform 0.7s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+.reveal.in-view {
+    opacity: 1;
+    transform: none;
+}
+
+/* Inner-page banner entrance (staggered) */
+.page-header .breadcrumb { animation: rise-in 0.7s ease both; }
+.page-header h1 { animation: rise-in 0.8s 0.08s cubic-bezier(0.2, 0.6, 0.2, 1) both; }
+.page-header p { animation: rise-in 0.8s 0.2s cubic-bezier(0.2, 0.6, 0.2, 1) both; }
+.page-header .gold-line { animation: rise-in 0.8s 0.32s cubic-bezier(0.2, 0.6, 0.2, 1) both; }
+
+/* Header gains a soft shadow once the page is scrolled */
+.header.scrolled {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.07);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .page-header .breadcrumb,
+    .page-header h1,
+    .page-header p,
+    .page-header .gold-line { animation: none !important; }
+}
+
 /* ===== SHARED RESPONSIVE (nav + footer) ===== */
 @media (max-width: 992px) {
     .footer-grid {
