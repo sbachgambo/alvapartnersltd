@@ -127,30 +127,62 @@
             font-family: 'Inter', sans-serif;
         }
 
-        .trust-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 40px 60px;
+        /* Sliding client-logo carousel */
+        .logo-marquee {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
         }
-
-        .trust-item {
-            font-weight: 600;
-            color: var(--navy);
-            font-size: 1.1rem;
+        .logo-track {
             display: flex;
             align-items: center;
-            gap: 10px;
-            opacity: 0.7;
-            transition: var(--transition);
+            gap: 72px;
+            width: max-content;
+            animation: logo-scroll 32s linear infinite;
         }
-        .trust-item:hover {
+        .logo-marquee:hover .logo-track {
+            animation-play-state: paused;
+        }
+        .client-logo {
+            height: 46px;
+            width: auto;
+            max-width: 190px;
+            object-fit: contain;
+            filter: grayscale(1);
+            opacity: 0.6;
+            transition: opacity 0.3s ease, filter 0.3s ease;
+            flex: 0 0 auto;
+        }
+        .client-logo:hover {
+            filter: grayscale(0);
             opacity: 1;
         }
-        .trust-item i {
-            color: var(--gold);
-            font-size: 1.3rem;
+        /* Text fallback shown until the logo image files are added (handled in main.js) */
+        .client-logo-fallback {
+            flex: 0 0 auto;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--slate);
+            white-space: nowrap;
+            opacity: 0.7;
+        }
+        @keyframes logo-scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .logo-track {
+                animation: none;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 28px 56px;
+            }
+            .logo-marquee {
+                -webkit-mask-image: none;
+                mask-image: none;
+            }
         }
 
         /* ===== TWO PILLARS ===== */
@@ -487,11 +519,12 @@
                 grid-template-columns: 1fr 1fr;
             }
 
-            .trust-grid {
-                gap: 20px 32px;
+            .client-logo {
+                height: 38px;
+                max-width: 150px;
             }
-            .trust-item {
-                font-size: 0.9rem;
+            .logo-track {
+                gap: 56px;
             }
         }
 
@@ -564,13 +597,23 @@
     <section class="trust-section">
         <div class="container">
             <h3>Trusted by Leading Organizations</h3>
-            <div class="trust-grid">
-                <span class="trust-item"><i class="fas fa-check-circle"></i> NSITF</span>
-                <span class="trust-item"><i class="fas fa-check-circle"></i> TETFund</span>
-                <span class="trust-item"><i class="fas fa-check-circle"></i> Lekki Port</span>
-                <span class="trust-item"><i class="fas fa-check-circle"></i> Oak Homes</span>
-                <span class="trust-item"><i class="fas fa-check-circle"></i> NASENI</span>
-                <span class="trust-item"><i class="fas fa-check-circle"></i> REA</span>
+        </div>
+        <div class="logo-marquee">
+            <div class="logo-track">
+                <!-- Logo set (duplicated below for a seamless infinite loop) -->
+                <img class="client-logo" src="images/logos/nsitf.png" alt="NSITF" />
+                <img class="client-logo" src="images/logos/tetfund.png" alt="TETFund" />
+                <img class="client-logo" src="images/logos/lekki-port.png" alt="Lekki Port" />
+                <img class="client-logo" src="images/logos/oak-homes.png" alt="Oak Homes" />
+                <img class="client-logo" src="images/logos/naseni.png" alt="NASENI" />
+                <img class="client-logo" src="images/logos/rea.png" alt="REA" />
+                <!-- Duplicate set (hidden from screen readers) -->
+                <img class="client-logo" src="images/logos/nsitf.png" alt="NSITF" aria-hidden="true" />
+                <img class="client-logo" src="images/logos/tetfund.png" alt="TETFund" aria-hidden="true" />
+                <img class="client-logo" src="images/logos/lekki-port.png" alt="Lekki Port" aria-hidden="true" />
+                <img class="client-logo" src="images/logos/oak-homes.png" alt="Oak Homes" aria-hidden="true" />
+                <img class="client-logo" src="images/logos/naseni.png" alt="NASENI" aria-hidden="true" />
+                <img class="client-logo" src="images/logos/rea.png" alt="REA" aria-hidden="true" />
             </div>
         </div>
     </section>

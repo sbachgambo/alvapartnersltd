@@ -67,3 +67,22 @@
         });
     });
 })();
+
+// ===== CLIENT LOGO FALLBACK =====
+// Until the logo files exist in images/logos/, show the company name as text
+// instead of a broken image, so the carousel still looks intentional.
+(function () {
+    var logos = document.querySelectorAll('.client-logo');
+    if (!logos.length) return;
+    Array.prototype.forEach.call(logos, function (img) {
+        img.addEventListener('error', function () {
+            var span = document.createElement('span');
+            span.className = 'client-logo-fallback';
+            span.textContent = img.getAttribute('alt') || '';
+            if (img.getAttribute('aria-hidden') === 'true') {
+                span.setAttribute('aria-hidden', 'true');
+            }
+            img.replaceWith(span);
+        });
+    });
+})();
