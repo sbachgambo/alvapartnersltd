@@ -237,6 +237,21 @@ textarea:focus-visible,
     color: rgba(255, 255, 255, 0.55);
 }
 
+/* Real logo image (replaces the CSS wordmark once alva-logo.png is present) */
+.logo-img {
+    height: 34px;
+    width: auto;
+    display: block;
+}
+.footer-logo .logo-img {
+    height: 30px;
+    margin-bottom: 12px;
+    filter: brightness(0) invert(1); /* render the dark wordmark white on the dark footer */
+}
+@media (max-width: 768px) {
+    .logo-img { height: 28px; }
+}
+
 .nav {
     display: flex;
     align-items: center;
