@@ -356,6 +356,40 @@ textarea:focus-visible,
     color: var(--gold);
 }
 
+.footer-solar-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    margin-bottom: 28px;
+    padding: 18px 24px;
+    border-radius: 10px;
+    background: rgba(224, 137, 43, 0.10);
+    border: 1px solid rgba(224, 137, 43, 0.35);
+}
+.footer-solar-cta span {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.92rem;
+}
+.footer-solar-cta span i {
+    color: var(--gold);
+    margin-right: 8px;
+}
+.footer-solar-cta a {
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 0.92rem;
+    white-space: nowrap;
+}
+.footer-solar-cta a i {
+    margin-left: 6px;
+    font-size: 0.75rem;
+}
+.footer-solar-cta a:hover {
+    text-decoration: underline;
+}
+
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     padding-top: 24px;
